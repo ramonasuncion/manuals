@@ -1,29 +1,50 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Language specification</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.8.1/github-markdown.min.css"
-      integrity="sha512-BrOPA520KmDMqieeM7XFe6a3u3Sb3F1JBaQnrIAmWg3EYrciJ+Qqe6ZcKCdfPv26rGcgTrJnZ/IdQEct8h3Zhw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github.min.css"
-      integrity="sha512-0aPQyyeZrWj9sCA46UlmWgKOP0mUipLQ6OZXu8l4IcAmD2u31EPEy9VcIMvl7SoAaKe8bLXZhYoMaE/in+gcgA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/cash-dom/dist/cash.min.js"></script>
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
-    ></script>
-  </head>
-  <body>
-    Hi
-  </body>
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.8.1/github-markdown-light.min.css" />
+  <link rel="stylesheet" href="/node_modules/highlight.js/styles/github.min.css" />
+  <link rel="stylesheet" href="/globals.css" />
+  <script type="module" src="/src/app.js"></script>
+  <script defer src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js"></script>
+  <title>Manuals</title>
+  <meta name="description" content="A small site for documentation and examples." />
+</head>
+
+<body class="bg-white text-gray-900 selection:bg-black/10">
+  <div class="flex flex-col h-dvh max-h-dvh overflow-hidden">
+    <header id="topbar" class="sticky top-0 z-20 bg-white/80 backdrop-blur border-b border-gray-200">
+      <div class="mx-auto w-full max-w-none px-4 py-3 grid grid-cols-3 items-center">
+        <button id="sidebarBtnLeft"
+          class="h-8 w-8 rounded-xl bg-gray-100 hover:bg-gray-200 active:scale-[.99] transition flex items-center justify-center"
+          title="Manuals"><i data-lucide="panel-left" class="h-5 w-5"></i></button>
+        <div id="siteTitle" class="justify-self-center text-sm font-medium cursor-pointer">Manuals</div>
+      </div>
+    </header>
+    <div id="sidebarOverlayLeft" class="hidden fixed inset-0 bg-black/30 z-40"></div>
+    <aside id="sidebarLeft"
+      class="fixed left-0 top-0 h-full w-80 bg-white border-r border-gray-200 -translate-x-full z-50 transition-transform">
+      <div class="p-4 border-b flex items-center justify-between">
+        <div id="sidebarHeading" class="text-sm font-semibold cursor-pointer">Manuals</div>
+        <button id="sidebarCloseLeft" class="p-1 rounded hover:bg-gray-100" aria-label="Close">✕</button>
+      </div>
+      <nav id="sidebarList" class="p-2 overflow-auto">
+      </nav>
+    </aside>
+    <main id="mainContent" class="flex-1 overflow-y-auto no-scrollbar">
+      <section id="contentHtml" class="px-0 border-b border-gray-200 hidden"></section>
+      <div id="messages" class="w-full max-w-none px-4 py-4 sm:py-6 space-y-4">
+        <div id="welcome" class="max-w-xl text-left">
+          <p class="mt-1 text-sm text-gray-600">Browse the manuals from the sidebar.</p>
+        </div>
+      </div>
+      <div class="h-24"></div>
+    </main>
+
+  </div>
+</body>
+
 </html>
