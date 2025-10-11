@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.8.1/github-markdown-light.min.css" />
   <link rel="stylesheet" href="/node_modules/highlight.js/styles/github.min.css" />
   <link rel="stylesheet" href="/globals.css" />
-  <script type="module" src="/src/app.js"></script>
   <script defer src="https://unpkg.com/lucide@latest"></script>
   <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js"></script>
   <title>Manuals</title>
@@ -45,6 +44,10 @@
     </main>
 
   </div>
+  <script type="module">
+    import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
+    document.addEventListener("DOMContentLoaded", (() => { window.lucide && "function" == typeof lucide.createIcons && lucide.createIcons(); const e = document.getElementById("sidebarBtnLeft"), t = document.getElementById("sidebarLeft"), d = document.getElementById("sidebarOverlayLeft"), s = document.getElementById("sidebarCloseLeft"), n = document.getElementById("sidebarList"), a = document.getElementById("contentHtml"), i = document.getElementById("siteTitle"), c = document.getElementById("sidebarHeading"), l = document.getElementById("messages"); if (!(t && d && n && a && i)) return; const o = "-translate-x-full"; function r() { a.classList.add("hidden"), i.classList.remove("hidden"), l && l.classList.remove("hidden") } function h(e) { a.classList.remove("hidden"); try { a.innerHTML = '<div class="markdown-body p-4">' + marked.parse(e) + "</div>" } catch (t) { a.textContent = e } try { hljs && "function" == typeof hljs.highlightAll && hljs.highlightAll() } catch (e) { } i.classList.add("hidden"), l && l.classList.add("hidden") } t.classList.add(o), d.classList.add("hidden"), async function () { try { const e = window.location.pathname.startsWith("/src") ? "./content/index.json" : "/content/index.json", s = await fetch(e), a = await s.json(); n.innerHTML = ""; for (const e of a) { const s = document.createElement("a"); s.href = "#", s.className = "block px-3 py-2 rounded hover:bg-gray-100 text-sm", s.textContent = e.title, s.dataset.path = e.path, s.addEventListener("click", (async s => { s.preventDefault(); const a = await fetch(e.path); var i; h(await a.text()), i = e.path, n.querySelectorAll("a").forEach((e => { e.dataset && e.dataset.path === i ? e.classList.add("bg-gray-100") : e.classList.remove("bg-gray-100") })), t.classList.add(o), d.classList.add("hidden") })), n.appendChild(s) } r() } catch (e) { r() } }(), e && e.addEventListener("click", (e => { e.preventDefault(), t.classList.toggle(o), d.classList.toggle("hidden") })), d.addEventListener("click", (() => { t.classList.add(o), d.classList.add("hidden") })), s && s.addEventListener("click", (() => { t.classList.add(o), d.classList.add("hidden") })), i && i.addEventListener("click", (e => { e.preventDefault(), r() })), c && c.addEventListener("click", (e => { e.preventDefault(), r(), t.classList.add(o), d.classList.add("hidden") })), r() }));
+  </script>
 </body>
 
 </html>
